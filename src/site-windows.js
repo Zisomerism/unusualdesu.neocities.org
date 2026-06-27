@@ -1,21 +1,13 @@
 
 var NAV_ITEMS = [
-	{ id: "terminal", label: "Terminal", windowId: 1, icon: "icons/terminal.svg" },
-	{ id: "contact", label: "Contact", windowId: 4, icon: "icons/contact.svg" },
-	{ id: "about", label: "About", windowId: 3, icon: "icons/about.svg" }
+	{ id: "about", label: "About", windowId: 2, icon: "icons/about.svg" },
+	{ id: "contact", label: "Contact", windowId: 3, icon: "icons/contact.svg" },
+	{ id: "terminal", label: "Terminal", windowId: 4, icon: "icons/terminal.svg" },
 ];
 
 var WINDOW_DEFS = [
 	{
 		id: 1,
-		title: "Terminal",
-		className: "window fade window-console",
-		visible: false,
-		style: "top: 120px; left: 80px;",
-		contentClass: "console-pane"
-	},
-	{
-		id: 2,
 		title: "Programs",
 		className: "window fade window-nav",
 		visible: true,
@@ -23,7 +15,7 @@ var WINDOW_DEFS = [
 		contentClass: "nav-pane"
 	},
 	{
-		id: 3,
+		id: 2,
 		title: "About",
 		className: "window fade window-content",
 		visible: false,
@@ -32,13 +24,21 @@ var WINDOW_DEFS = [
 		contentHTML: getAboutContent()
 	},
 	{
-		id: 4,
+		id: 3,
 		title: "Contact",
 		className: "window fade window-content",
 		visible: false,
 		style: "top: 140px; left: 280px;",
 		contentClass: "content-pane",
 		contentHTML: getContactContent()
+	},
+	{
+		id: 4,
+		title: "Terminal",
+		className: "window fade window-console",
+		visible: false,
+		style: "top: 120px; left: 80px;",
+		contentClass: "console-pane"
 	}
 ];
 
@@ -142,7 +142,7 @@ function buildDesktop() {
 		var main = document.createElement("div");
 		main.className = "mainWindow " + def.contentClass;
 
-		if (def.id === 2) {
+		if (def.id === 1) {
 			main.appendChild(createNavGrid());
 		} else if (def.contentHTML) {
 			main.innerHTML = def.contentHTML;
