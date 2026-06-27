@@ -1,8 +1,8 @@
 
 var NAV_ITEMS = [
 	{ id: "terminal", label: "Terminal", windowId: 1, icon: "icons/terminal.svg" },
-	{ id: "contact", label: "Contact", windowId: 3, icon: "icons/contact.svg" },
-	{ id: "about", label: "About", windowId: 4, icon: "icons/about.svg" }
+	{ id: "contact", label: "Contact", windowId: 4, icon: "icons/contact.svg" },
+	{ id: "about", label: "About", windowId: 3, icon: "icons/about.svg" }
 ];
 
 var WINDOW_DEFS = [
@@ -59,7 +59,7 @@ function getContactContent() {
 		"<p class='logprimary'><a href='https://github.com/Zisomerism'><b>My Github</b>https://github.com/Zisomerism</a></p>",
 		"<p class='logprimary'><a href='https://steamcommunity.com/id/IHateLua'><b>My Steam</b>https://steamcommunity.com/id/IHateLua</a></p>",
 		"<p class='logprimary'><a href='mailto:unusualdesu@protonmail.com'><b>Email Me?</b>unusualdesu@protonmail.com</a><br></p>",
-		"<p class='logprimary'>If you want to commission me or ask questions, add me on discord: <b>unusualdesu</b></p>"
+		"<p class='logprimary'>If you want to commission me or ask questions email me at the above email or add me on discord: <b>unusualdesu</b></p>"
 	].join("");
 }
 
