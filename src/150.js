@@ -51,7 +51,6 @@ function handle_command(command){
 	}else if(command.match(/^owo$/i)){
 		con.logHTML("<div class='logprimary'>uwu</div>");
 	}else{
-		var err;
 		try{
 			con.logHTML("<div class='logprimary'>"+eval(command)+"</div>");
 		}catch(error){
