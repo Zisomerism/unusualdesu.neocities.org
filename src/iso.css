@@ -110,27 +110,37 @@
 	color: #39ff14;
 }
 
-/* Mobile: full-width console, better touch and scroll */
 @media (max-width: 768px) {
 	.console-wrapper {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
 		min-height: 0;
-		padding: 1.5rem 0.5rem 1rem;
+		padding: 0 0.5rem max(0.75rem, env(safe-area-inset-bottom));
 	}
 	.simple-console {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
 		width: 100%;
 		min-width: 0;
-		margin: 2vh;
-		height: min(60vh, 400px);
-		min-height: 260px;
+		min-height: 0;
+		height: auto;
+		margin: 0;
 		padding: 0 0.75rem 0.75rem;
 	}
 	.simple-console-output {
-		height: calc(100% - 3rem);
-		min-height: 200px;
+		flex: 1 1 auto;
+		min-height: 0;
+		height: auto;
+		overflow: auto;
 		-webkit-overflow-scrolling: touch;
-		margin: 4vh;
+		margin: 1vh;
 	}
 	.simple-console-input-wrapper {
+		flex-shrink: 0;
 		padding: 0.5rem 0.5rem 0.5rem 1rem;
 	}
 	.simple-console-input {

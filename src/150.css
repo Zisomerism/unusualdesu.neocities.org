@@ -114,26 +114,27 @@ a:hover{
 	cursor:url("carrothover.png"),url("https://i.imgur.com/2b1vHL1.png"),auto;
 }
 
-code {
-	font-family: inherit;
-	padding: 0.1em 0.2em;
-	border: 1px solid #00ff41;
-	background: rgba(0, 255, 65, 0.08);
-	color: #39ff14;
-}
-
-/* Mobile: no typewriter, better layout and touch targets */
 @media (max-width: 768px) {
 	body {
-		padding: 0 0.5rem;
+		display: flex;
+		flex-direction: column;
+		min-height: 100dvh;
+		min-height: 100vh;
+	}
+	.console_wrapper {
+		padding: 0 5%;
 		-webkit-text-size-adjust: 100%;
 	}
 	.header_text {
-		margin: 3vh 0.5rem 2vh;
-		bottom: -6vh;
-		font-size: clamp(1.25rem, 5vw + 0.75rem, 1.75rem);
+		flex-shrink: 0;
+		position: static;
+		bottom: auto;
+		margin: 0;
+		padding: max(0.75rem, env(safe-area-inset-top)) 0.5rem 0.5rem;
+		font-size: clamp(1.25rem, 4vw + 0.5rem, 1.5rem);
+		line-height: 1.2;
 	}
-	/* Disable typewriter on mobile – show text immediately */
+
 	.logprimary,
 	.logsecondary,
 	.logtertiary,
