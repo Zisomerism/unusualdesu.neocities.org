@@ -23,11 +23,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Fill text from snippets
-        uses: Zisomerism/replace-from-file@v1.0.0
-        with:
-          source_dir: "templates"
-
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@v3
 
@@ -36,6 +31,11 @@ jobs:
           replace: ${{ github.event.repository.updated_at}}
           regex: false
           
+      - name: Fill text from snippets
+        uses: Zisomerism/replace-from-file@v1.0.0
+        with:
+          source_dir: "templates"
+
       - name: Dump GitHub context
         id: github_context_step
         run: echo '${{ toJSON(github) }}'

@@ -1,0 +1,131 @@
+
+.console-pane {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 0;
+	overflow: hidden;
+}
+
+.simple-console {
+	position: relative;
+	background: var(--phosphor-bg, #0a0800);
+	border: none;
+	height: 100%;
+	width: 100%;
+	min-width: 0;
+	padding: 0;
+	margin: 0;
+	font-family: inherit;
+	font-size: clamp(1rem, 1.2vw + 0.9rem, 1.35rem);
+	color: var(--phosphor, #FFCC00);
+	box-shadow: none;
+	display: flex;
+	flex-direction: column;
+}
+
+.simple-console-output {
+	flex: 1 1 auto;
+	min-height: 0;
+	height: 100%;
+	overflow: auto;
+	text-shadow: 0 0 4px rgba(255, 204, 0, 0.4);
+	padding: 0.5rem 0.75rem;
+}
+
+.simple-console-output::-webkit-scrollbar {
+	width: 0.6em;
+}
+
+.simple-console-output::-webkit-scrollbar-track {
+	background: #0d0a00;
+}
+
+.simple-console-output::-webkit-scrollbar-thumb {
+	background: #2a2000;
+	border: 1px solid var(--phosphor, #FFCC00);
+}
+
+.simple-console-output::-webkit-scrollbar-thumb:hover {
+	background: #3a2e00;
+}
+
+.simple-console-input-wrapper {
+	border-top: none;
+	display: flex;
+	flex-shrink: 0;
+	background: transparent;
+	margin: 0;
+}
+
+.simple-console-input {
+	display: block;
+	flex: 1;
+	font: inherit;
+	font-size: inherit;
+	line-height: normal !important;
+	height: auto;
+	min-height: 1.5em;
+	color: var(--phosphor, #FFCC00);
+	background: transparent;
+	border: 0;
+	caret-color: var(--phosphor, #FFCC00);
+}
+
+.simple-console-input::placeholder {
+	color: rgba(255, 204, 0, 0.4);
+}
+
+.simple-console-input:focus {
+	outline: 0;
+}
+
+.simple-console-input-wrapper,
+.entry {
+	padding: 0.15rem 0.5rem;
+	padding-left: 1.25rem;
+	position: relative;
+}
+
+.input-chevron {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--phosphor, #FFCC00);
+}
+
+.entry.input {
+	color: var(--phosphor-dim, #FFB000);
+}
+
+.entry.input .input-chevron {
+	color: var(--phosphor-dim, #FFB000);
+}
+
+@media (max-width: 768px) {
+	.simple-console {
+		min-height: 45vh;
+	}
+
+	.simple-console-output {
+		flex: 1 1 auto;
+		min-height: 0;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.simple-console-input-wrapper {
+		flex-shrink: 0;
+		padding: 0.35rem 0.5rem 0.35rem 1rem;
+	}
+
+	.simple-console-input {
+		min-height: 44px;
+		font-size: 1rem;
+	}
+}
