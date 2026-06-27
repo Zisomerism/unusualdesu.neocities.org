@@ -1,1 +1,1 @@
-a really lazy personal site
+My personal neocities that I mostly use for messing around.
