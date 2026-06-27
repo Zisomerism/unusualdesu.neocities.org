@@ -267,56 +267,18 @@ h1, h2 {
 	line-height: 1.2;
 }
 
-/* Log content styles */
-
 .logprimary {
 	color: var(--phosphor);
 	margin: 0;
 	white-space: nowrap;
 	overflow: hidden;
-	animation: typewriter 3s steps(44) 0.025s 1 normal both;
 	text-shadow: 0 0 4px var(--phosphor-glow-dim);
 }
 
-.logsecondary {
-	color: var(--phosphor);
-	margin: 0;
-	white-space: nowrap;
-	overflow: hidden;
-	animation: typewriter 2.90s steps(44) 0.040s 1 normal both;
-	text-shadow: 0 0 4px var(--phosphor-glow-dim);
-}
-
-.logtertiary {
-	color: var(--phosphor);
-	margin: 0;
-	white-space: nowrap;
-	overflow: hidden;
-	animation: typewriter 3.25s steps(44) 0.010s 1 normal both;
-	text-shadow: 0 0 4px var(--phosphor-glow-dim);
-}
-
-.logquaternary {
-	color: var(--phosphor);
-	margin: 0;
-	white-space: nowrap;
-	overflow: hidden;
-	animation: typewriter 2.50s steps(44) 0.035s 1 normal both;
-	text-shadow: 0 0 4px var(--phosphor-glow-dim);
-}
-
-.content-pane .logprimary,
-.content-pane .logsecondary,
-.content-pane .logtertiary,
-.content-pane .logquaternary {
+.content-pane .logprimary {
 	animation: none;
 	white-space: normal;
 	overflow: visible;
-}
-
-@keyframes typewriter {
-	from { width: 0; }
-	to { width: 100%; }
 }
 
 b {
@@ -343,4 +305,75 @@ a {
 a:hover {
 	color: var(--phosphor);
 	text-shadow: 0 0 8px var(--phosphor-glow);
+}
+
+@media (max-width: 768px) {
+	body {
+		overflow-y: auto;
+	}
+
+	.windowGroup {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem;
+		padding-top: max(0.75rem, env(safe-area-inset-top));
+		padding-right: max(0.75rem, env(safe-area-inset-right));
+		padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+		padding-left: max(0.75rem, env(safe-area-inset-left));
+		height: auto;
+		min-height: 100vh;
+		overflow-y: auto;
+	}
+
+	.window {
+		position: relative !important;
+		top: auto !important;
+		left: auto !important;
+		width: min(100%, calc(100vw - 1.5rem)) !important;
+		max-width: 100%;
+		height: auto;
+		min-height: 240px;
+	}
+
+	.window-console {
+		height: min(65vh, 475px);
+	}
+
+	.window-nav {
+		height: auto;
+		min-height: 200px;
+	}
+
+	.window-content {
+		height: auto;
+		min-height: 280px;
+		max-height: 70vh;
+	}
+
+	.window-content .mainWindow {
+		overflow-y: auto;
+	}
+
+	.phosphor-header,
+	[id$="header"] {
+		touch-action: pan-y;
+	}
+
+	.nav-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+		padding: 12px;
+	}
+
+	.nav-icon {
+		width: 40px;
+		height: 40px;
+	}
+
+	.simple-console-output .logprimary {
+		white-space: normal;
+		overflow-wrap: anywhere;
+	}
 }

@@ -53,6 +53,9 @@ function dragElement(elmnt) {
     }
 
     function dragMouseDown(e) {
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            return;
+        }
         if (e.target.closest(".window-widget.close")) {
             return;
         }

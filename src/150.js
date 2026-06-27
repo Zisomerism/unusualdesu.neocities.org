@@ -9,20 +9,19 @@ var con = new SimpleConsole({
 });
 console_pane.appendChild(con.element);
 window.con = con;
-con.logHTML("<div class='logquaternary' onclick='con.history_log(\"Help\");displayCommands();'></a></div>");
 
 function displayCommands(){
-	con.logHTML("<div class='logsecondary'><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference' target='_blank' rel='noopener noreferrer'><b>JS REF</b>man javascript(7) — developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a></div><br>");
+	con.logHTML("<div class='logprimary'><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference' target='_blank' rel='noopener noreferrer'><b>JS REF</b>man javascript(7) — developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a></div><br>");
 }
 
 function displayAbout() {
 	openWindow("about");
-	con.logHTML("<div class='logquaternary'>Opening about page...</div>");
+	con.logHTML("<div class='logprimary'>Opening about page...</div>");
 }
 
 function displayLinks() {
 	openWindow("contact");
-	con.logHTML("<div class='logquaternary'>Opening contact page...</div>");
+	con.logHTML("<div class='logprimary'>Opening contact page...</div>");
 }
 
 function handle_command(command){

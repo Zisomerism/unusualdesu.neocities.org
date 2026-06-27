@@ -1,4 +1,3 @@
-/* Window layout, navigation config, and openWindow API */
 
 var NAV_ITEMS = [
 	{ id: "terminal", label: "Terminal", windowId: 1, icon: "icons/terminal.svg" },
@@ -45,22 +44,22 @@ var WINDOW_DEFS = [
 
 function getAboutContent() {
 	return [
-		"<p class='logquaternary'>I'm desu! I'm a hobbyist programmer and game developer of over 14 years!</p>",
-		"<p class='logtertiary'>I am genuinely passionate about making things people enjoy and helping others do the same.</p>",
-		"<p class='logsecondary'>If you want to support me, you can do that below.</p>",
-		"<p class='logsecondary'>For anything else check the contact section and don't be afraid to reach out!</p>",
+		"<p class='logprimary'>I'm desu! I'm a hobbyist programmer and game developer of over 14 years!</p>",
+		"<p class='logprimary'>I am genuinely passionate about making things people enjoy and helping others do the same.</p>",
+		"<p class='logprimary'>If you want to support me, you can do that below.</p>",
+		"<p class='logprimary'>For anything else check the contact section and don't be afraid to reach out!</p>",
 		"<p class='logprimary'><a href='https://buymeacoffee.com/unusualdesu'><b>Buy me a coffee</b>https://buymeacoffee.com/unusualdesu</a></p>",
-		"<p class='logsecondary'>This site was last updated on: WORKFLOW_DATE_PLACEHOLDER</p>"
+		"<p class='logprimary'>This site was last updated on: WORKFLOW_DATE_PLACEHOLDER</p>"
 	].join("");
 }
 
 function getContactContent() {
 	return [
-		"<p class='logquaternary'>Some places you can find me:</p>",
-		"<p class='logquaternary'><a href='https://github.com/Zisomerism'><b>My Github</b>https://github.com/Zisomerism</a></p>",
-		"<p class='logsecondary'><a href='https://steamcommunity.com/id/IHateLua'><b>My Steam</b>https://steamcommunity.com/id/IHateLua</a></p>",
+		"<p class='logprimary'>Some places you can find me:</p>",
+		"<p class='logprimary'><a href='https://github.com/Zisomerism'><b>My Github</b>https://github.com/Zisomerism</a></p>",
+		"<p class='logprimary'><a href='https://steamcommunity.com/id/IHateLua'><b>My Steam</b>https://steamcommunity.com/id/IHateLua</a></p>",
 		"<p class='logprimary'><a href='mailto:unusualdesu@protonmail.com'><b>Email Me?</b>unusualdesu@protonmail.com</a><br></p>",
-		"<p class='logsecondary'>If you want to commission me or ask questions, add me on discord: <b>unusualdesu</b></p>"
+		"<p class='logprimary'>If you want to commission me or ask questions, add me on discord: <b>unusualdesu</b></p>"
 	].join("");
 }
 
