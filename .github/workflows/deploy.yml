@@ -30,11 +30,6 @@ jobs:
           find: "WORKFLOW_DATE_PLACEHOLDER"
           replace: ${{ github.event.repository.updated_at}}
           regex: false
-          
-      - name: Fill text from snippets
-        uses: Zisomerism/replace-from-file@v1.0.0
-        with:
-          source_dir: "templates"
 
       - name: Dump GitHub context
         id: github_context_step
