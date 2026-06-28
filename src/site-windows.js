@@ -3,6 +3,7 @@ var NAV_ITEMS = [
 	{ id: "about", label: "About", windowId: 2, icon: "icons/about.svg" },
 	{ id: "contact", label: "Contact", windowId: 3, icon: "icons/contact.svg" },
 	{ id: "terminal", label: "Terminal", windowId: 4, icon: "icons/terminal.svg" },
+	{ id: "music", label: "Music", windowId: 5, icon: "icons/music.svg" },
 ];
 
 var WINDOW_DEFS = [
@@ -39,6 +40,14 @@ var WINDOW_DEFS = [
 		visible: false,
 		style: "top: 120px; left: 80px;",
 		contentClass: "console-pane"
+	},
+	{
+		id: 5,
+		title: "Music",
+		className: "window fade window-music",
+		visible: false,
+		style: "top: 180px; left: 360px;",
+		contentClass: "music-pane"
 	}
 ];
 
@@ -144,6 +153,8 @@ function buildDesktop() {
 
 		if (def.id === 1) {
 			main.appendChild(createNavGrid());
+		} else if (def.id === 5 && window.MusicPlayer) {
+			window.MusicPlayer.init(main);
 		} else if (def.contentHTML) {
 			main.innerHTML = def.contentHTML;
 		}
@@ -182,6 +193,9 @@ function openWindow(idOrWindowId) {
 	el.classList.add("is-visible");
 	if (windowId === 1 && window.con) {
 		window.con.input.focus();
+	}
+	if (windowId === 5 && window.MusicPlayer) {
+		window.MusicPlayer.onWindowOpen();
 	}
 }
 

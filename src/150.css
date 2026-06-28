@@ -68,6 +68,12 @@ body::before {
 	[role="button"] *,
 	.nav-tile,
 	.nav-tile *,
+	.mocp-playlist-row,
+	.mocp-playlist-row *,
+	.mocp-progress-track,
+	.mocp-progress-track *,
+	.mocp-controls button,
+	.mocp-controls button *,
 	.window-widget,
 	.window-widget *,
 	[id^="closeButton"],
@@ -143,6 +149,197 @@ h1, h2 {
 .window-content {
 	width: 600px;
 	height: 380px;
+}
+
+.window-music {
+	width: 520px;
+	height: 360px;
+}
+
+.music-pane {
+	padding: 12px;
+	overflow: hidden;
+}
+
+.mocp-audio {
+	position: fixed;
+	left: -9999px;
+	top: 0;
+	width: 640px;
+	height: 360px;
+	overflow: hidden;
+	border: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.mocp-audio iframe {
+	width: 640px;
+	height: 360px;
+	border: 0;
+}
+
+#mocp-yt-player {
+	width: 640px;
+	height: 360px;
+}
+
+.mocp-player {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	gap: 10px;
+	font-size: 1rem;
+	line-height: 1.3;
+}
+
+.mocp-box {
+	position: relative;
+	border: 1px solid var(--phosphor);
+	padding: 10px 8px 8px;
+}
+
+.mocp-box-title {
+	position: absolute;
+	top: -0.55em;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--phosphor-bg);
+	padding: 0 8px;
+	color: var(--phosphor);
+	font-size: 0.95rem;
+	white-space: nowrap;
+}
+
+.mocp-playlist {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.mocp-playlist-scroll {
+	flex: 1;
+	overflow-y: auto;
+	margin-top: 4px;
+}
+
+.mocp-playlist-scroll::-webkit-scrollbar {
+	width: 0.6em;
+}
+
+.mocp-playlist-scroll::-webkit-scrollbar-track {
+	background: #0d0a00;
+}
+
+.mocp-playlist-scroll::-webkit-scrollbar-thumb {
+	background: #2a2000;
+	border: 1px solid var(--phosphor);
+}
+
+.mocp-playlist-scroll::-webkit-scrollbar-thumb:hover {
+	background: #3a2e00;
+}
+
+.mocp-playlist-row {
+	display: flex;
+	width: 100%;
+	gap: 8px;
+	padding: 2px 4px;
+	border: none;
+	background: transparent;
+	color: var(--phosphor);
+	font-family: inherit;
+	font-size: inherit;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.mocp-playlist-row:hover,
+.mocp-playlist-row:focus {
+	background: rgba(255, 204, 0, 0.08);
+	outline: none;
+}
+
+.mocp-playlist-row.mocp-active {
+	background: var(--phosphor-dim);
+	color: var(--phosphor-bg);
+	text-shadow: none;
+}
+
+.mocp-col-index {
+	flex: 0 0 1.5em;
+}
+
+.mocp-col-title {
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.mocp-col-meta {
+	flex: 0 0 auto;
+}
+
+.mocp-playing {
+	flex-shrink: 0;
+}
+
+.mocp-now-playing,
+.mocp-status-line {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 2px 0;
+}
+
+.mocp-status-line {
+	color: var(--phosphor-dim);
+	min-height: 1.3em;
+}
+
+.mocp-time-row {
+	display: flex;
+	justify-content: space-between;
+	margin: 4px 0;
+	font-size: 0.9rem;
+	white-space: nowrap;
+}
+
+.mocp-progress-track {
+	position: relative;
+	height: 10px;
+	border: 1px solid var(--phosphor);
+	margin: 4px 0;
+}
+
+.mocp-progress-fill {
+	height: 100%;
+	width: 0%;
+	background: var(--phosphor-dim);
+	pointer-events: none;
+}
+
+.mocp-controls {
+	display: flex;
+	gap: 6px;
+	margin-top: 4px;
+}
+
+.mocp-controls button {
+	padding: 2px 8px;
+	border: 1px solid var(--phosphor-border);
+	background: var(--phosphor-title-bg);
+	color: var(--phosphor);
+	font-family: inherit;
+	font-size: 0.9rem;
+}
+
+.mocp-controls button:hover,
+.mocp-controls button:focus {
+	border-color: var(--phosphor);
+	background: rgba(255, 204, 0, 0.1);
+	outline: none;
 }
 
 .phosphor-header,
@@ -349,6 +546,12 @@ a:hover {
 	.window-content {
 		height: auto;
 		min-height: 280px;
+		max-height: 70vh;
+	}
+
+	.window-music {
+		height: auto;
+		min-height: 320px;
 		max-height: 70vh;
 	}
 

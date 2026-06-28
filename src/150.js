@@ -1,5 +1,5 @@
 
-var console_pane = document.querySelector("#window1 .console-pane");
+var console_pane = document.querySelector("#window4 .console-pane");
 
 var con = new SimpleConsole({
 	handleCommand: handle_command,
