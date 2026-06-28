@@ -4,14 +4,16 @@ var YOUTUBE_PLAYLIST_ID = "PLWtSSJ2a28vU";
 var PLAYLIST = [
 	{ id: "Bkl-QFC7_uw", artist: "s777n", title: "remains of a corrupted file" },
 	{ id: "kXbeLiZY6jc", artist: "68+1", title: "your eyes" },
-	{ id: "it7NUY2baeU", artist: "4evrx", title: "grocery store panic attack" },
 	{ id: "mA0j_xF29kQ", artist: "maple", title: "Fuzzyhead (feat. acounta, Girls Rituals)" },
 	{ id: "_b4wNdBtWuk", artist: "maple", title: "WAHOO!!" },
 	{ id: "-M_PZLNeOao", artist: "maple", title: "Having Fun And Playing" },
-	{ id: "Bkl-QFC7_uw", artist: "maple", title: "fr<3nd" },
+	{ id: "zT3FA8-mDbM", artist: "maple", title: "fr<3nd" },
 	{ id: "SoV15-kKIPU", artist: "Sadness", title: "Untitled IV" },
-	{ id: "Bkl-QFC7_uw", artist: "Born An Abomination", title: "Awakening in The Morgue" },
-	{ id: "Bkl-QFC7_uw", artist: "Girls Rituals", title: "Pragmatism" }
+	{ id: "YOVFLmIZoyc", artist: "Born An Abomination", title: "Awakening in The Morgue" },
+	{ id: "ZcGIJKRF64c", artist: "Girls Rituals", title: "Pragmatism" },
+	{ id: "uQijFLNjk1w", artist: "Zaphyre", title: "ghost" },
+	{ id: "NwgheEwsVEM", artist: "CB1", title: "Hey!listen" },
+	{ id: "FQOJSJHAowA", artist: "llwll", title: "Sadness - daydreaming (llwll Remix)" }
 ];
 
 var currentIndex = 0;
@@ -167,9 +169,11 @@ function onPlayerStateChange(event) {
 		isPlaying = false;
 		stopProgressLoop();
 		updateProgressUI();
+		updatePlayingPanel();
 	} else {
 		isPlaying = false;
 		stopProgressLoop();
+		updatePlayingPanel();
 	}
 }
 
@@ -224,6 +228,9 @@ function updatePlaylistHighlight() {
 
 function updatePlayingPanel() {
 	ui.nowPlaying.textContent = "> " + trackLabel(getTrack(currentIndex));
+	if (ui.playingTitle) {
+		ui.playingTitle.textContent = isPlaying ? "Playing..." : "Paused";
+	}
 }
 
 function pause() {
@@ -232,6 +239,7 @@ function pause() {
 	}
 	isPlaying = false;
 	stopProgressLoop();
+	updatePlayingPanel();
 }
 
 function onWindowOpen() {
@@ -294,7 +302,8 @@ function init(containerEl) {
 	playingBox.className = "mocp-box mocp-playing";
 	var playingTitle = document.createElement("div");
 	playingTitle.className = "mocp-box-title";
-	playingTitle.textContent = "Playing...";
+	playingTitle.textContent = "Paused";
+	ui.playingTitle = playingTitle;
 
 	ui.nowPlaying = document.createElement("div");
 	ui.nowPlaying.className = "mocp-now-playing";
