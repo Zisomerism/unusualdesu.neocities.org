@@ -107,18 +107,17 @@ function createNavGrid() {
 			tile.className = "nav-tile";
 			tile.setAttribute("data-window-id", item.windowId);
 
-			var img = document.createElement("img");
-			img.src = item.icon;
-			img.alt = "";
-			img.className = "nav-icon";
-			img.width = 48;
-			img.height = 48;
+			var icon = document.createElement("span");
+			icon.className = "nav-icon";
+			icon.style.setProperty("--icon", "url('" + item.icon + "')");
+			icon.setAttribute("role", "img");
+			icon.setAttribute("aria-label", item.label);
 
 			var label = document.createElement("span");
 			label.className = "nav-label";
 			label.textContent = item.label;
 
-			tile.appendChild(img);
+			tile.appendChild(icon);
 			tile.appendChild(label);
 			tile.addEventListener("click", function() {
 				openWindow(item.id);
@@ -191,7 +190,7 @@ function openWindow(idOrWindowId) {
 		window.WindowEngine.fadeIn(el);
 	}
 	el.classList.add("is-visible");
-	if (windowId === 1 && window.con) {
+	if (windowId === 4 && window.con) {
 		window.con.input.focus();
 	}
 	if (windowId === 5 && window.MusicPlayer) {

@@ -27,7 +27,17 @@ function displayLinks() {
 function handle_command(command){
 	if(command.match(/^<3$/i)){
 		con.logHTML("<div class='logprimary'>❤</div>");
-	}else if(command.match(/^(Help)$/i)){
+	}else if(command.match(/^theme$/i)){
+		var theme_list = window.SiteTheme ? window.SiteTheme.themes.join(", ") : "amber";
+		con.logHTML("<div class='logprimary'>Usage: theme &lt;name&gt; ("+theme_list+")</div>");
+	}else if(command.match(/^theme\s+(\w+)$/i)){
+		var theme_name = command.match(/^theme\s+(\w+)$/i)[1].toLowerCase();
+		if(window.SiteTheme && window.SiteTheme.setTheme(theme_name)){
+			con.logHTML("<div class='logprimary'>Theme set to "+theme_name+".</div>");
+		}else{
+			con.logHTML("<div class='logprimary'>Unknown theme: "+theme_name+"</div>");
+		}
+	}else if(command.match(/^Help$/i)){
 		displayCommands()
 	}else if(command.match(/^(About|Info)$/i)){
 		displayAbout()

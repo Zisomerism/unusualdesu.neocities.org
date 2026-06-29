@@ -29,7 +29,7 @@
 	min-height: 0;
 	height: 100%;
 	overflow: auto;
-	text-shadow: 0 0 4px rgba(255, 204, 0, 0.4);
+	text-shadow: 0 0 4px var(--phosphor-glow-dim);
 	padding: 0.5rem 0.75rem;
 }
 
@@ -38,16 +38,16 @@
 }
 
 .simple-console-output::-webkit-scrollbar-track {
-	background: #0d0a00;
+	background: var(--scrollbar-track, #0d0a00);
 }
 
 .simple-console-output::-webkit-scrollbar-thumb {
-	background: #2a2000;
+	background: var(--scrollbar-thumb, #2a2000);
 	border: 1px solid var(--phosphor, #FFCC00);
 }
 
 .simple-console-output::-webkit-scrollbar-thumb:hover {
-	background: #3a2e00;
+	background: var(--scrollbar-thumb-hover, #3a2e00);
 }
 
 .simple-console-input-wrapper {
@@ -73,7 +73,8 @@
 }
 
 .simple-console-input::placeholder {
-	color: rgba(255, 204, 0, 0.4);
+	color: var(--phosphor-glow-dim);
+	opacity: 0.85;
 }
 
 .simple-console-input:focus {
