@@ -11,7 +11,9 @@ console_pane.appendChild(con.element);
 window.con = con;
 
 function displayCommands(){
+	con.logHTML("<div class='logprimary'>Welcome! This is a simple javascript console. You can run javascript locally to break the site if you want.</div>");
 	con.logHTML("<div class='logprimary'><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference' target='_blank' rel='noopener noreferrer'><b>JS REF</b>man javascript(7) — developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a></div><br>");
+	con.logHTML("<div class='logprimary'>You can also use the theme command to change the theme of the site from this terminal by typing 'theme' and then the name of the theme you want to change to.</div>");
 }
 
 function displayAbout() {

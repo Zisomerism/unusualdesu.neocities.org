@@ -441,7 +441,7 @@ h1, h2 {
 .windowTitle {
 	position: static;
 	margin: 4px;
-	padding-top: 15px;
+	padding-top: 14px;
 	flex: 1;
 	font-size: 0.85rem;
 	font-weight: bold;
@@ -465,7 +465,7 @@ h1, h2 {
 .window-widget.close {
 	position: relative;
 	background: transparent;
-
+	margin-top: 14px;
 	font-size: 0;
 	width: 14px;
 	height: 14px;
@@ -489,7 +489,6 @@ h1, h2 {
 }
 
 .content-pane {
-	padding: 12px 16px;
 	font-size: 1.2rem;
 }
 
@@ -544,8 +543,7 @@ h1, h2 {
 .logprimary {
 	color: var(--phosphor);
 	margin: 0;
-	white-space: nowrap;
-	overflow: hidden;
+	overflow: auto;
 	text-shadow: 0 0 4px var(--phosphor-glow-dim);
 }
 
