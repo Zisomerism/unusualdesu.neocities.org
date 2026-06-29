@@ -1,6 +1,6 @@
 (function() {
 	var THEMES = ["amber", "green", "pink", "valley", "white"];
-	var DEFAULT = "amber";
+	var DEFAULT = "valley";
 
 	function isValid(name) {
 		return THEMES.indexOf(name) !== -1;
