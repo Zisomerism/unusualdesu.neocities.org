@@ -10,7 +10,7 @@ var PLAYLIST = [
 	{ id: "zT3FA8-mDbM", artist: "maple", title: "fr<3nd" },
 	{ id: "SoV15-kKIPU", artist: "Sadness", title: "Untitled IV" },
 	{ id: "YOVFLmIZoyc", artist: "Born An Abomination", title: "Awakening in The Morgue" },
-	{ id: "ZcGIJKRF64c", artist: "Girls Rituals", title: "Pragmatism" },
+	{ id: "oIMv1PFXyVs", artist: "Girls Rituals", title: "Pragmatism" },
 	{ id: "uQijFLNjk1w", artist: "Zaphyre", title: "ghost" },
 	{ id: "NwgheEwsVEM", artist: "CB1", title: "Hey!listen" },
 	{ id: "FQOJSJHAowA", artist: "llwll", title: "Sadness - daydreaming (llwll Remix)" }
