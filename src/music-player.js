@@ -5,15 +5,17 @@ var PLAYLIST = [
 	{ id: "Bkl-QFC7_uw", artist: "s777n", title: "remains of a corrupted file" },
 	{ id: "kXbeLiZY6jc", artist: "68+1", title: "your eyes" },
 	{ id: "mA0j_xF29kQ", artist: "maple", title: "Fuzzyhead (feat. acounta, Girls Rituals)" },
-	{ id: "_b4wNdBtWuk", artist: "maple", title: "WAHOO!!" },
-	{ id: "-M_PZLNeOao", artist: "maple", title: "Having Fun And Playing" },
-	{ id: "zT3FA8-mDbM", artist: "maple", title: "fr<3nd" },
 	{ id: "SoV15-kKIPU", artist: "Sadness", title: "Untitled IV" },
 	{ id: "YOVFLmIZoyc", artist: "Born An Abomination", title: "Awakening in The Morgue" },
 	{ id: "oIMv1PFXyVs", artist: "Girls Rituals", title: "Pragmatism" },
 	{ id: "uQijFLNjk1w", artist: "Zaphyre", title: "ghost" },
 	{ id: "NwgheEwsVEM", artist: "CB1", title: "Hey!listen" },
-	{ id: "FQOJSJHAowA", artist: "llwll", title: "Sadness - daydreaming (llwll Remix)" }
+	{ id: "FQOJSJHAowA", artist: "llwll", title: "Sadness - daydreaming (llwll Remix)" },
+	{ id: "HgzTnKQDc_A", artist: "Girls Rituals", title: "Illusion (VNV Nation cover)" },
+	{ id: "L6Ti8hBg39A", artist: "exceeding structure", title: "after so many years" },
+	{ id: "_b4wNdBtWuk", artist: "maple", title: "WAHOO!!" },
+	{ id: "-M_PZLNeOao", artist: "maple", title: "Having Fun And Playing" },
+	{ id: "zT3FA8-mDbM", artist: "maple", title: "fr<3nd" },
 ];
 
 var currentIndex = 0;

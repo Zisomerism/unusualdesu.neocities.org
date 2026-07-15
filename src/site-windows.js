@@ -55,9 +55,7 @@ function getAboutContent() {
 	return [
 		"<p class='logprimary'>I'm desu! I'm a hobbyist programmer and game developer of over 14 years!</p>",
 		"<p class='logprimary'>I am genuinely passionate about making things people enjoy and helping others do the same.</p>",
-		"<p class='logprimary'>If you want to support me, you can do that below.</p>",
-		"<p class='logprimary'>For anything else check the contact section and don't be afraid to reach out!</p>",
-		"<p class='logprimary'><a href='https://buymeacoffee.com/unusualdesu'><b>Buy me a coffee</b>https://buymeacoffee.com/unusualdesu</a></p>",
+		"<p class='logprimary'>Don't be afraid to reach out, I'm always happy to talk.</p>",
 		"<p class='logprimary'>This site was last updated on: WORKFLOW_DATE_PLACEHOLDER</p>"
 	].join("");
 }
