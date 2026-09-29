@@ -26,6 +26,14 @@ var playerReady = false;
 var apiLoading = false;
 var progressFrameId = null;
 var ui = {};
+var playbackListeners = [];
+
+function emitPlaybackChange() {
+	var i;
+	for (i = 0; i < playbackListeners.length; i++) {
+		playbackListeners[i](isPlaying);
+	}
+}
 
 function formatTime(seconds) {
 	if (seconds == null || isNaN(seconds) || seconds < 0) {
@@ -177,6 +185,7 @@ function onPlayerStateChange(event) {
 		stopProgressLoop();
 		updatePlayingPanel();
 	}
+	emitPlaybackChange();
 }
 
 function stopProgressLoop() {
@@ -242,6 +251,7 @@ function pause() {
 	isPlaying = false;
 	stopProgressLoop();
 	updatePlayingPanel();
+	emitPlaybackChange();
 }
 
 function onWindowOpen() {
@@ -383,5 +393,13 @@ function init(containerEl) {
 window.MusicPlayer = {
 	init: init,
 	onWindowOpen: onWindowOpen,
-	onWindowClose: onWindowClose
+	onWindowClose: onWindowClose,
+	isPlaying: function() {
+		return isPlaying;
+	},
+	onPlaybackChange: function(fn) {
+		if (typeof fn === "function") {
+			playbackListeners.push(fn);
+		}
+	}
 };

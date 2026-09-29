@@ -233,6 +233,30 @@ h1, h2 {
 	height: 360px;
 }
 
+#window5 {
+	overflow: visible;
+}
+
+[data-theme="valley"] .valley-angel {
+	position: absolute;
+	left: 50%;
+	bottom: 100%;
+	transform: translateX(-50%);
+	margin-bottom: 2px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	z-index: 1;
+	line-height: 0;
+}
+
+[data-theme="valley"] .valley-angel img {
+	display: block;
+	image-rendering: pixelated;
+	pointer-events: none;
+}
+
 .music-pane {
 	padding: 12px;
 	overflow: hidden;
