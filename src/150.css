@@ -218,6 +218,15 @@ h1, h2 {
 	height: 475px;
 }
 
+.window-console .simple-console-output .entry {
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+}
+
+.window-console .entry.error {
+	color: var(--phosphor-dim, #FFB000);
+}
+
 .window-nav {
 	width: 320px;
 	height: 280px;
@@ -709,6 +718,10 @@ a:hover {
 [data-theme="valley"] .window-console .logprimary {
 	color: var(--accent-green);
 	text-shadow: 0 0 6px var(--phosphor-glow-dim);
+}
+
+[data-theme="valley"] .window-console .entry.error {
+	color: var(--accent-red);
 }
 
 [data-theme="valley"] .window-console a {

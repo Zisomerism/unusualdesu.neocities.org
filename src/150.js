@@ -10,11 +10,96 @@ var con = new SimpleConsole({
 console_pane.appendChild(con.element);
 window.con = con;
 
-function displayCommands(){
-	con.logHTML("<div class='logprimary'>Welcome! This is a simple javascript console. You can run javascript locally to break the site if you want.</div>");
-	con.logHTML("<div class='logprimary'><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference' target='_blank' rel='noopener noreferrer'><b>JS REF</b>man javascript(7) — developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a></div><br>");
-	con.logHTML("<div class='logprimary'>You can also use the theme command to change the theme of the site from this terminal by typing 'theme' and then the name of the theme you want to change to.</div>");
+var evalResultSkip = {};
+
+function formatEvalValue(value, isResult) {
+	if (value === undefined) {
+		return isResult ? evalResultSkip : "undefined";
+	}
+	if (value === null) {
+		return "null";
+	}
+	if (typeof value === "object") {
+		try {
+			return JSON.stringify(value, null, 2);
+		} catch (e) {
+			return String(value);
+		}
+	}
+	return String(value);
 }
+
+function logEvalText(text) {
+	if (text === "") {
+		return;
+	}
+	var line = document.createElement("div");
+	line.className = "logprimary";
+	line.textContent = text;
+	con.log(line);
+}
+
+function runEval(command) {
+	if (/^\s*$/.test(command)) {
+		return;
+	}
+	var lines = [];
+	var origLog = console.log;
+	var origWarn = console.warn;
+	var origError = console.error;
+
+	function tee(orig) {
+		return function() {
+			var parts = [];
+			for (var i = 0; i < arguments.length; i++) {
+				parts.push(formatEvalValue(arguments[i], false));
+			}
+			lines.push(parts.join(" "));
+			orig.apply(console, arguments);
+		};
+	}
+
+	console.log = tee(origLog);
+	console.warn = tee(origWarn);
+	console.error = tee(origError);
+
+	try {
+		var result = eval(command);
+		for (var j = 0; j < lines.length; j++) {
+			logEvalText(lines[j]);
+		}
+		var formatted = formatEvalValue(result, true);
+		if (formatted !== evalResultSkip) {
+			logEvalText(formatted);
+		}
+	} catch (error) {
+		con.error(error instanceof Error ? error.message : String(error));
+	} finally {
+		console.log = origLog;
+		console.warn = origWarn;
+		console.error = origError;
+	}
+}
+
+var BREAK_PAGE_ONELINER =
+	'document.querySelectorAll(".window").forEach(function(w){ w.style.transform = "rotate(" + (Math.random() * 60 - 30).toFixed(1) + "deg)"; }); ' +
+	'(function walk(node){ if (node.nodeName === "SCRIPT" || node.nodeName === "STYLE") return; if (node.nodeType === 3) node.textContent = "oops!"; else for (var i = 0; i < node.childNodes.length; i++) walk(node.childNodes[i]); })(document.body);';
+
+function fillTerminalBreakPrank() {
+	con.input.value = BREAK_PAGE_ONELINER;
+	con.input.focus();
+}
+
+window.fillTerminalBreakPrank = fillTerminalBreakPrank;
+
+function displayCommands(){
+	con.logHTML("<div class='logprimary'>Welcome! This is a simple javascript console</div>");
+	con.logHTML("<div class='logprimary'><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference' target='_blank' rel='noopener noreferrer'><b>JS REF</b> man javascript(7) — developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a></div><br>");
+	con.logHTML("<div class='logprimary'>You can also use the theme command to change the theme of the site from this terminal by typing 'theme' and then the name of the theme you want to change to.</div>");
+	con.logHTML("<div class='logprimary'><a href='#' title='funny one liner' onclick='fillTerminalBreakPrank(); return false;'>\uD83D\uDD28</a></div>");
+}
+
+displayCommands();
 
 function displayAbout() {
 	openWindow("about");
@@ -62,11 +147,7 @@ function handle_command(command){
 	}else if(command.match(/^owo$/i)){
 		con.logHTML("<div class='logprimary'>uwu</div>");
 	}else{
-		try{
-			con.logHTML("<div class='logprimary'>"+eval(command)+"</div>");
-		}catch(error){
-			con.logHTML("<div class='logprimary'>"+error+"</div>");
-		}
+		runEval(command);
 	}
 };
 
